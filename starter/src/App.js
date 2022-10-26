@@ -2,7 +2,7 @@ import NavBar from "./components/NavBar";
 import CartContainer from "./components/CartContainer";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { calculateTotal } from "./feature/cartSlice";
+import { calculateTotal, getCart } from "./feature/cartSlice";
 import Model from "./components/Model";
 import modelSlice from "./feature/modelSlice";
 
@@ -14,6 +14,10 @@ function App() {
     dispatch(calculateTotal());
   },[cartItems]);
 
+  useEffect(()=>{
+    dispatch(getCart());
+  },[])
+  
   return (
   <main>
     <NavBar/>
